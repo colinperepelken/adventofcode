@@ -14,4 +14,4 @@ body
   |> list_contains.()
 end)
 |> Enum.count(&(&1))
-|> IO.inspect(charlists: :as_lists)
+|> IO.puts
