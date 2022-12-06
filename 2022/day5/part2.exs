@@ -27,7 +27,7 @@ moveStacks = fn stacks, amount, source, destination ->
   toMove = Enum.slice(sourceStack, 0, amount)
 
   newSource = sourceStack -- toMove
-  newDestination =  Enum.reverse(toMove) ++ destinationStack
+  newDestination =  toMove ++ destinationStack
 
   stacks
     |> List.replace_at(source, newSource)
