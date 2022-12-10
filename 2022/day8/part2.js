@@ -2,20 +2,16 @@ const fs = require('fs');
 
 
 const calculateScenicScore = (list, tree) => {
-    let highestTree = -1
     let score = 0
     for (value of list) {
-        if(value > highestTree || (value === highestTree && value < tree)) {
-            highestTree = value
-            score++
+        score++
+        if(value >= tree) {
+            return score
         }
     }
 
     return score
 }
-
-// console.log(calculateScenicScore([5, 6, 3, 3, 5, 6, 7, 7, 8, 8, 9, 9], 7))
-// return
 
 const input = fs.readFileSync('input.txt', 'utf8');
 
@@ -47,14 +43,6 @@ for (let rowIndex = 0; rowIndex < grid.length; rowIndex++) {
         
         if (scenicScore > maxScenicScore) {
             maxScenicScore = scenicScore
-            if (maxScenicScore == 1836) {
-                console.log([rowIndex, colIndex])
-                console.log(rowRight)
-    
-                console.log(scores)
-                console.log('tree', tree)
-            }
-
         }
 
     }
